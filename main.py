@@ -181,6 +181,7 @@ def main():
 
 	# plt.hist(data['Member type'], bins=5)
 	# st.pyplot()
+	#test
 
 if __name__ == "__main__":
 	main()
