@@ -45,7 +45,7 @@ def decisionTree(X_train, X_test, y_train, y_test):
 	return score, report, tree
 
 # Training Neural Network for Classification.
-# @st.cache(suppress_st_warning=True)
+@st.cache_resource(experimental_allow_widgets=True)
 def neuralNet(X_train, X_test, y_train, y_test):
 	# Scalling the data before feeding it to the Neural Network.
 	scaler = StandardScaler()  
@@ -62,7 +62,7 @@ def neuralNet(X_train, X_test, y_train, y_test):
 	return score1, report, clf
 
 # Training KNN Classifier
-@st.cache(suppress_st_warning=True)
+@st.cache_resource(experimental_allow_widgets=True)
 def Knn_Classifier(X_train, X_test, y_train, y_test):
 	clf = KNeighborsClassifier(n_neighbors=5)
 	clf.fit(X_train, y_train)
