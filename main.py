@@ -103,7 +103,7 @@ def main():
 	# Insert Check-Box to show the snippet of the data.
 	if st.checkbox('Show Raw Data'):
 		st.subheader("Showing raw data---->>>")	
-		st.write(data.head())
+		st.write(data.head(10))
 
 
 	# ML Section
@@ -162,7 +162,7 @@ def main():
 	# Visualization Section
 	plotData = showMap()
 	st.subheader("Bike Travel History data plotted-first few locations located near Washington DC")
-	st.map(plotData, zoom = 14)
+	st.map(plotData, zoom = 7, use_container_width=True)
 
 
 	choose_viz = st.sidebar.selectbox("Choose the Visualization",
