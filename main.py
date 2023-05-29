@@ -10,15 +10,23 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler  
 from sklearn.neighbors import KNeighborsClassifier
 import plotly.express as px
+import google.auth
+from google.cloud import storage
 
+def get_csv_gcs(bucket_name, file_name):
+    csv_data = pd.read_csv('gs://' + bucket_name + '/' + file_name, encoding='utf-8')  
+    # csv_data = pd.read_excel('gs://' + bucket_name + '/' + file_name, encoding='utf-8')    
+    return csv_data
 
-
+bucket_name = "dataprep-staging-76a4eba9-abb7-41ce-9168-df23035f64aa/yaffazka@gmail.com/jobrun"
+file_name = "Join Table.csv"
 
 
 
 @st.cache_data
-def loadData():
-	df = pd.read_csv("2010-capitalbikeshare-tripdata.csv")
+def loadData(bucket_name, file_name):
+
+	df = pd.read_csv('gs://' + bucket_name + '/' + file_name, encoding='utf-8')  
 	return df
 
 # Basic preprocessing required for all the models.  
@@ -101,7 +109,9 @@ def showMap():
 def main():
 	st.title("Prediction of Trip History Data")
 	st.text("The implementation Machine Learning Classification Algorithms")
-	data = loadData()
+	bucket_name = "dataprep-staging-76a4eba9-abb7-41ce-9168-df23035f64aa/yaffazka@gmail.com/jobrun"
+	file_name = "Join Table.csv"
+	data = loadData(bucket_name,file_name)
 	X_train, X_test, y_train, y_test, le = preprocessing(data)
 
 	# Insert Check-Box to show the snippet of the data.
