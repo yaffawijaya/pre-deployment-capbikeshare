@@ -12,6 +12,10 @@ from sklearn.neighbors import KNeighborsClassifier
 import plotly.express as px
 
 
+
+
+
+
 @st.cache_data
 def loadData():
 	df = pd.read_csv("2010-capitalbikeshare-tripdata.csv")
