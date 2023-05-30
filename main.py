@@ -24,7 +24,8 @@ from google.cloud import storage
 
 
 @st.cache_data
-def loadData(bucket_name, file_name):
+# def loadData(bucket_name, file_name):
+def loadData(file_name):
 
 	# df = pd.read_csv('gs://' + bucket_name + '/' + file_name, encoding='utf-8')  
 	df = pd.read_csv('2010-capitalbikeshare-tripdata.csv')  
@@ -108,17 +109,18 @@ def showMap():
 
 
 def main():
-	st.title("Prediction of Trip History Data")
-	st.text("The implementation Machine Learning Classification Algorithms")
-	bucket_name = "dataprep-staging-76a4eba9-abb7-41ce-9168-df23035f64aa/yaffazka@gmail.com/jobrun"
+	st.title("Washington DC Bike Trip History")
+	# st.text("The implementation Machine Learning Classification Algorithms")
+	st.text("Predict and understanding bicycles rent in Washington DC")
+	# bucket_name = "dataprep-staging-76a4eba9-abb7-41ce-9168-df23035f64aa/yaffazka@gmail.com/jobrun"
 	file_name = "Join Table.csv"
-	data = loadData(bucket_name,file_name)
+	data = loadData(file_name)
 	X_train, X_test, y_train, y_test, le = preprocessing(data)
 
 	# Insert Check-Box to show the snippet of the data.
 	if st.checkbox('Show Raw Data'):
 		st.subheader("Showing raw data---->>>")	
-		st.write(data.head(10))
+		st.write(data.head(5))
 
 
 	# ML Section
