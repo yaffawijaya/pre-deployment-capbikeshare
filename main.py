@@ -13,20 +13,21 @@ import plotly.express as px
 import google.auth
 from google.cloud import storage
 
-def get_csv_gcs(bucket_name, file_name):
-    csv_data = pd.read_csv('gs://' + bucket_name + '/' + file_name, encoding='utf-8')  
-    # csv_data = pd.read_excel('gs://' + bucket_name + '/' + file_name, encoding='utf-8')    
-    return csv_data
+# def get_csv_gcs(bucket_name, file_name):
+#     csv_data = pd.read_csv('gs://' + bucket_name + '/' + file_name, encoding='utf-8')  
+#     # csv_data = pd.read_excel('gs://' + bucket_name + '/' + file_name, encoding='utf-8')    
+#     return csv_data
 
-bucket_name = "dataprep-staging-76a4eba9-abb7-41ce-9168-df23035f64aa/yaffazka@gmail.com/jobrun"
-file_name = "Join Table.csv"
+# bucket_name = "dataprep-staging-76a4eba9-abb7-41ce-9168-df23035f64aa/yaffazka@gmail.com/jobrun"
+# file_name = "Join Table.csv"
 
 
 
 @st.cache_data
 def loadData(bucket_name, file_name):
 
-	df = pd.read_csv('gs://' + bucket_name + '/' + file_name, encoding='utf-8')  
+	# df = pd.read_csv('gs://' + bucket_name + '/' + file_name, encoding='utf-8')  
+	df = pd.read_csv('2010-capitalbikeshare-tripdata.csv')  
 	return df
 
 # Basic preprocessing required for all the models.  
