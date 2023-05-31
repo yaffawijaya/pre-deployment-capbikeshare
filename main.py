@@ -10,8 +10,8 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler  
 from sklearn.neighbors import KNeighborsClassifier
 import plotly.express as px
-import google.auth
-from google.cloud import storage
+# import google.auth
+# from google.cloud import storage
 
 # def get_csv_gcs(bucket_name, file_name):
 #     csv_data = pd.read_csv('gs://' + bucket_name + '/' + file_name, encoding='utf-8')  
